@@ -28,6 +28,15 @@
               <dt>Director</dt>
               <dd><%= @movie.director.name %></dd>
 
+              <dt>Roles</dt>
+              <dd>
+                <ul>
+                  <% @movie.roles.each do |role| %>
+                    <li><%= role.character_name %></li>
+                  <% end %>
+                </ul>
+              </dd>
+
             </dl>
             <div class="btn-group btn-group-justified">
               <%= link_to movies_url, :class => "btn btn-primary" do %>

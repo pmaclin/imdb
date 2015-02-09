@@ -37,3 +37,15 @@ movie_hashes.each do |movie_hash|
 end
 puts "There are now #{Movie.count} rows in the movies table."
 
+roles_file = Rails.root.join('lib', 'seeds', 'roles.json').to_s
+role_hashes = JSON.parse(open(roles_file).read)
+
+Role.destroy_all
+role_hashes.each do |role_hash|
+  r = Role.new
+  r.character_name = role_hash["character_name"]
+  m = Movie.find_by_title(role_hash["movie"])
+  r.movie_id = m.id if m.present?
+  r.save
+end
+puts "There are now #{Role.count} rows in the roles table."

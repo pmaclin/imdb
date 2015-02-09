@@ -24,9 +24,11 @@
                 <% movies = Movie.where({ :director_id => @director.id }) %>
 
                 <!-- Good -->
-                <% @director.filmography.each do |movie| %>
-                  <li><%= movie.title %></li>
-                <% end %>
+                <ul>
+                  <% @director.filmography.each do |movie| %>
+                    <li><%= movie.title %></li>
+                  <% end %>
+                </ul>
               </dd>
 
             </dl>
