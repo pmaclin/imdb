@@ -20,8 +20,11 @@
 
               <dt>Filmography</dt>
               <dd>
+                <!-- Bad -->
                 <% movies = Movie.where({ :director_id => @director.id }) %>
-                <% movies.each do |movie| %>
+
+                <!-- Good -->
+                <% @director.filmography.each do |movie| %>
                   <li><%= movie.title %></li>
                 <% end %>
               </dd>
