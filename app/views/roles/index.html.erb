@@ -28,7 +28,10 @@
         <dl>
           <dt>Movie</dt>
           <dd><%= role.movie_id %></dd>
-          <dd><%= role.movie.title %> (<%= role.movie.year %>)</dd>
+
+          <% @role.titleshow.each do |movie| %>
+          <dd><%= movie.title %> (<%= movie.year %>)</dd>
+          <% end %>
 
           <dt>Character name</dt>
           <dd><%= role.character_name %></dd>
